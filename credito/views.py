@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Credito
+
+from .serializers import CreditoSerializer
+
+class CreditoViewSet(viewsets.ModelViewSet):
+    queryset = Credito.objects.all()
+    serializer_class = CreditoSerializer
+
+    
