@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  django-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - HOST=${HOST}
+      - HOST_FRONT=${HOST_FRONT}
+      - SECRET_KEY=${SECRET_KEY}
+    ports:
+      - 80:8000
+    expose:
+      - 80
