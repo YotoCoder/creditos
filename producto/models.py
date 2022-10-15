@@ -4,6 +4,8 @@ from datetime import datetime
 
 import os
 
+import json
+
 # Create your models here.
 
 class Categoria(models.Model):
@@ -22,10 +24,5 @@ class Producto(models.Model):
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
 
     def __str__(self):
+        
         return f'{self.nombre} - {self.precio}'
-
-    # colocarle la fecha en el nombre de la imagen
-    def save(self, *args, **kwargs):
-        self.imagen.name = f'{self.nombre}_{datetime.now().strftime("%d-%m-%Y")}{os.path.splitext(self.imagen.name)[1]}'
-        super().save(*args, **kwargs)
-

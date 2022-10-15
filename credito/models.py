@@ -17,7 +17,7 @@ CHOICE_ESTADO = (
 
 class Credito(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
-    producto = models.ManyToManyField(Producto)
+    productos = models.ManyToManyField(Producto)
     fecha = models.DateField()
     monto = models.FloatField(blank=True, null=True)
     estado = models.CharField(max_length=100, choices=CHOICE_ESTADO, default='Pendiente')
