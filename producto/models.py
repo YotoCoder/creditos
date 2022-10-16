@@ -17,7 +17,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
-    precio = models.IntegerField()
+    precio = models.FloatField()
     stock = models.IntegerField()
     descripcion = models.TextField(null=True, blank=True)
     categoria = models.ManyToManyField(Categoria, blank=True) 

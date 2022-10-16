@@ -15,16 +15,16 @@ class ProductoSerializer(serializers.ModelSerializer):
 
 class CreditoSerializer(serializers.ModelSerializer):
     
-    # mostrar todos los datos del cliente
-    cliente = ClienteSerializer(
-        many=False,
-        read_only=True
-    )
+    # # mostrar todos los datos del cliente
+    # cliente = ClienteSerializer(
+    #     many=False,
+    #     read_only=True
+    # )
 
-    # mostrar todos los datos del producto
-    productos = ProductoSerializer(
-        many=True
-    )
+    # # mostrar todos los datos del producto
+    # productos = ProductoSerializer(
+    #     many=True
+    # )
 
     class Meta:
         model = Credito

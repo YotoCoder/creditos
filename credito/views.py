@@ -25,7 +25,7 @@ class CreditoViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             cliente = Cliente.objects.get(id=request.data['cliente'])
-            productos = request.data['producto']
+            productos = request.data['productos']
             monto = 0
             for producto in productos:
                 monto += Producto.objects.get(id=producto).precio
